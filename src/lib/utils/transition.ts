@@ -21,3 +21,29 @@ export function readTransitions<
 		outOptions: Transition['options'];
 	};
 }
+
+export function fadeScale(
+	node: HTMLElement,
+	{
+		delay = 0,
+		duration = 200,
+		easing = (x) => x,
+		baseScale = 0,
+		...config
+	}: SvelteTransitionConfig & { baseScale?: number }
+) {
+	const o = +getComputedStyle(node).opacity;
+	const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
+	const s = m ? parseFloat(m[1]) : 1;
+	const is = 1 - baseScale;
+
+	return {
+		...config,
+		delay,
+		duration,
+		css: (t: number) => {
+			const eased = easing(t);
+			return `opacity: ${eased * o}; transform: scale(${eased * s * is + baseScale})`;
+		}
+	};
+}

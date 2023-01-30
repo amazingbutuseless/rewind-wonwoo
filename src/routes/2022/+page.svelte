@@ -1,5 +1,6 @@
 <script lang="ts">
 	import December from './December.svelte';
+	import October from './October.svelte';
 </script>
 
 <svelte:head>
@@ -17,6 +18,7 @@
 
 	<main>
 		<December />
+		<October />
 	</main>
 
 	<footer class="p-8 text-sm">

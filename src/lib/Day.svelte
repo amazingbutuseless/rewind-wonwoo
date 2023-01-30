@@ -3,7 +3,7 @@
 	export let day: number;
 </script>
 
-<article id={datetime} class="flex flex-row items-start font-body mb-6">
+<article id="rewind-{datetime}" class="flex flex-row items-start font-body mb-6">
 	<time {datetime} class="date">{day}</time>
 	<div>
 		<slot>contents here</slot>

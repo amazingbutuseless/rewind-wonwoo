@@ -21,6 +21,8 @@
 		--purple: #c4aff0;
 		--white: #fffeec;
 		--black: #000000;
+
+		--header-height: 6rem;
 	}
 
 	:global(html) {

@@ -30,7 +30,7 @@
 
 <div
 	id="rewind-2022-12-13-wrapper"
-	class="relative -mx-8 pt-[50vh] box-border"
+	class="relative pt-[50vh] box-border"
 	use:inview
 	on:change={({ detail }) => {
 		isInView = detail.inView;

@@ -3,14 +3,25 @@
 	export let day: number;
 </script>
 
-<article id="rewind-{datetime}" class="flex flex-row items-start font-body mb-6">
-	<time {datetime} class="date">{day}</time>
-	<div>
-		<slot>contents here</slot>
-	</div>
-</article>
+<div class="wrapper p-8">
+	<article
+		id="rewind-{datetime}"
+		class="flex flex-row items-start sticky top-[var(--header-height)] font-body"
+	>
+		<time {datetime} class="date">{day}</time>
+		<div>
+			<slot>contents here</slot>
+		</div>
+	</article>
+</div>
 
 <style lang="postcss">
+	.wrapper {
+		@apply h-screen;
+
+		background-color: var(--bg-color);
+	}
+
 	article {
 		font-size: 1.6rem;
 	}

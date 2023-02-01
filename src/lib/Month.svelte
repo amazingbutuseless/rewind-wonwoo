@@ -2,8 +2,8 @@
 	export let month: string;
 </script>
 
-<section class="px-8">
-	<h2 class="p-0 m-0 mb-6 font-heading text-lg">{month}</h2>
+<section class="z-0">
+	<h2 class="sticky top-0 m-0 p-8 mb-6 font-heading text-lg z-[1]">{month}</h2>
 	<slot />
 </section>
 

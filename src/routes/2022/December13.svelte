@@ -84,7 +84,7 @@
 			{/each}
 			<p class="m-0 mt-6">😍👍❤️🥰</p>
 		</div>
-		<cite class="block not-italic text-sm">credits: startnewskorea.com</cite>
+		<cite class="block photo-credits">startnewskorea.com</cite>
 	</article>
 </div>
 
@@ -96,11 +96,6 @@
 		background-repeat: no-repeat;
 		font-size: 1.6rem;
 		scroll-snap-type: y proximity;
-	}
-
-	article cite {
-		color: var(--white);
-		opacity: 0.5;
 	}
 
 	.date ~ h3 {

@@ -13,7 +13,7 @@
 			<span>Wonwoo</span>
 			<strong class="block -mt-4">Rewind <span class="block">2022</span></strong>
 		</h1>
-		<cite class="block mt-auto mb-8 ml-8 not-italic text-sm">credits: PLEDIS Co.,Ltd</cite>
+		<cite class="block mt-auto mb-8 ml-8 photo-credits">PLEDIS Co.,Ltd</cite>
 	</header>
 
 	<main>

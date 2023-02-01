@@ -26,4 +26,12 @@
 	:global(html) {
 		font-size: 10px;
 	}
+
+	:global(cite.photo-credits) {
+		@apply text-[var(--white)] not-italic text-sm opacity-50;
+	}
+
+	:global(cite.photo-credits::before) {
+		content: 'credits: ';
+	}
 </style>

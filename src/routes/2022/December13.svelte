@@ -30,7 +30,7 @@
 
 <div
 	id="rewind-2022-12-13-wrapper"
-	class="relative -mx-8 w-screen pt-[50vh] box-border"
+	class="relative -mx-8 pt-[50vh] box-border"
 	use:inview
 	on:change={({ detail }) => {
 		isInView = detail.inView;
@@ -42,7 +42,8 @@
 		<div
 			class="emoji-wrapper"
 			transition:changeBackgroundColor={{ duration: 1000 }}
-			on:outrostart={emojiAnimation.beforeCompleted.bind(emojiAnimation)}
+			on:introstart={emojiAnimation.beforeStart.bind(emojiAnimation)}
+			on:introend={emojiAnimation.beforeCompleted.bind(emojiAnimation)}
 			on:outroend={emojiAnimation.afterCompleted.bind(emojiAnimation)}
 		>
 			{#each Array(emojiAnimation.length) as _, idx}
@@ -63,7 +64,7 @@
 
 	<article
 		id="rewind-2022-12-13"
-		class="flex flex-col mb-8 p-8 w-full h-screen box-border"
+		class="flex flex-col mb-8 p-8 w-screen md:w-full h-screen box-border"
 		use:inview={{ threshold: 0.8, unobserveOnEnter: true }}
 		on:change={({ detail }) => {
 			showArticle = detail.inView;

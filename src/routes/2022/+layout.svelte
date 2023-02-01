@@ -27,6 +27,12 @@
 		font-size: 10px;
 	}
 
+	:global(body) {
+		margin: 0 auto;
+		min-width: 390px;
+		max-width: 1024px;
+	}
+
 	:global(cite.photo-credits) {
 		@apply text-[var(--white)] not-italic text-sm opacity-50;
 	}

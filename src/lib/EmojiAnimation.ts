@@ -2,12 +2,15 @@ import { fly } from 'svelte/transition';
 import HeartIcon from './assets/ico_heart.png';
 import HeartEyesIcon from './assets/ico_heart_eyes.png';
 import HeartSmileIcon from './assets/ico_smile_hearts.png';
+import { toggleBodyScroll } from './utils/dom';
 
 type EmojiAnimationConfig = {
 	maxSize?: number;
 	minSize?: number;
 	length?: number;
 };
+
+const toggleScroll = toggleBodyScroll();
 
 export class EmojiAnimation {
 	readonly EMOJIS = { '❤️': HeartIcon, '😍': HeartEyesIcon, '🥰': HeartSmileIcon };
@@ -83,15 +86,19 @@ export class EmojiAnimation {
 		};
 	}
 
+	public beforeStart() {
+		toggleScroll(false);
+	}
+
 	public beforeCompleted() {
-		this._articleElm.classList.add('fixed', 'top-0');
+		this._articleElm.scrollIntoView();
 	}
 
 	private wrapUp() {
 		if (this.hasDone) {
 			this._wrapperElm.classList.remove('pt-[50vh]');
-			this._articleElm.classList.remove('fixed');
 			this._articleElm.scrollIntoView();
+			toggleScroll(true);
 			return;
 		}
 

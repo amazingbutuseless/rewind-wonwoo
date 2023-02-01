@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { fade, scale } from 'svelte/transition';
-	import { bounceIn, expoIn, quadIn, quadOut, quintIn } from 'svelte/easing';
+	import { scale } from 'svelte/transition';
+	import { bounceIn } from 'svelte/easing';
 
 	import SpeechBubbleTail from './assets/SpeechBubbleTail.svelte';
 	import { readTransitions } from './utils/transition';
@@ -26,14 +26,15 @@
 	<img
 		srcset={profileImageSrcSet}
 		alt={name}
+		class="rounded-full z-0"
 		in:scale={{ easing: bounceIn }}
 		on:introend={() => {
 			showMessage = true;
 		}}
 	/>
 
-	<p class="relative p-4 px-6 rounded" class:bg-none={!showMessage}>
-		<strong class="block">{name}</strong>
+	<div class="message-container" class:bg-none={!showMessage}>
+		<cite class="block not-italic font-bold">{name}</cite>
 		{#if showMessage}
 			<slot />
 		{/if}
@@ -41,17 +42,15 @@
 			class="speech-bubble-tail"
 			color={direction === 'left' ? '#FFF4BB' : '#C5ECE8'}
 		/>
-	</p>
+	</div>
 </blockquote>
 
 <style lang="postcss">
-	blockquote p {
+	.message-container {
+		@apply relative p-4 px-6 rounded;
+
 		font-size: 1.6rem;
 		background-image: linear-gradient(90deg, #fff4bb 0%, #c5ece8 100%);
-	}
-
-	blockquote img {
-		border-radius: 3.4rem;
 	}
 
 	blockquote :global(.speech-bubble-tail) {
@@ -67,7 +66,7 @@
 		@apply order-1;
 	}
 
-	blockquote.left p {
+	blockquote.left .message-container {
 		@apply order-2;
 	}
 
@@ -83,7 +82,7 @@
 		@apply order-2;
 	}
 
-	blockquote.right p {
+	blockquote.right .message-container {
 		@apply order-1 text-right;
 	}
 
